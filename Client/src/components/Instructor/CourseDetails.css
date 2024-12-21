@@ -1,0 +1,60 @@
+.course-details {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.course-details h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.course-details p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.module {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.module h3 {
+    margin-top: 0;
+    color: #343a40;
+}
+
+.resources {
+    margin-top: 10px;
+}
+
+.resources h4 {
+    margin-bottom: 5px;
+    color: #495057;
+}
+
+.resources ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.resources li {
+    margin-bottom: 5px;
+}
+
+.resources a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.resources a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}

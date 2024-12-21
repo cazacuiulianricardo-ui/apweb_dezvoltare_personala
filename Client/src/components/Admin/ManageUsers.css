@@ -1,0 +1,101 @@
+.manage-users {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.manage-users h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.manage-users table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.manage-users th, .manage-users td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.manage-users tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.manage-users tr.deleted {
+    background-color: #f8d7da;
+}
+
+.manage-users tr.active {
+    background-color: #d4edda;
+}
+
+.manage-users th {
+    background-color: #343a40;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.restore-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.restore-btn:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    .manage-users table, .manage-users thead, .manage-users tbody, .manage-users th, .manage-users td, .manage-users tr {
+        display: block;
+    }
+
+    .manage-users tr {
+        margin-bottom: 15px;
+    }
+
+    .manage-users td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .manage-users td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}

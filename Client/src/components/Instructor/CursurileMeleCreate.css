@@ -1,0 +1,63 @@
+.cursurile-mele-create {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cursurile-mele-create h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cursuri-list {
+    list-style: none;
+    padding: 0;
+}
+
+.curs-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.curs-item h3 {
+    margin-top: 0;
+    color: #343a40;
+}
+
+.curs-actions {
+    margin-top: 10px;
+}
+
+.view-details-btn,
+.edit-btn {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-right: 10px;
+    color: white;
+}
+
+.view-details-btn {
+    background-color: #17a2b8;
+}
+
+.view-details-btn:hover {
+    background-color: #138496;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}

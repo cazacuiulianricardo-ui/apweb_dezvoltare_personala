@@ -1,0 +1,44 @@
+.module-management {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.module-management h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.course-selector {
+    margin-bottom: 20px;
+}
+
+.course-selector label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.course-selector select {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.add-module-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.add-module-btn:hover {
+    background-color: #218838;
+}
+
+.modules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

@@ -1,0 +1,73 @@
+.module {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.module-header h3 {
+    margin: 0;
+    color: #343a40;
+}
+
+.module-header .edit-btn,
+.module-header .delete-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.module-header .delete-btn {
+    background-color: #dc3545;
+}
+
+.module-header .edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.module-header .delete-btn:hover {
+    background-color: #c82333;
+}
+
+.module-resources {
+    margin-top: 15px;
+}
+
+.module-resources h4 {
+    margin-bottom: 10px;
+    color: #495057;
+}
+
+.module-resources ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.module-resources li {
+    margin-bottom: 5px;
+}
+
+.add-resource-btn {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.add-resource-btn:hover {
+    background-color: #138496;
+}

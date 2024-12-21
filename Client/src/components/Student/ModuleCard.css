@@ -1,0 +1,28 @@
+.module-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  
+  .module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .module-header h4 {
+    margin: 0;
+  }
+  
+  .module-header button {
+    padding: 3px 7px;
+    cursor: pointer;
+  }
+  
+  .resources-section {
+    margin-top: 10px;
+    padding-left: 15px;
+  }
+  
