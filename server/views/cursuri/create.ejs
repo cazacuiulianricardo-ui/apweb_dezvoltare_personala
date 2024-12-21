@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Adaugă Curs</title>
+</head>
+<body>
+    <h1>Adaugă Curs Nou</h1>
+    <form action="/cursuri" method="POST">
+        <label for="titlu">Titlu:</label>
+        <input type="text" id="titlu" name="titlu" required>
+
+        <label for="descriere">Descriere:</label>
+        <textarea id="descriere" name="descriere" required></textarea>
+
+        <label for="instructor">Instructor:</label>
+        <select id="instructor" name="idInstructor" required>
+            <% instructori.forEach(instructor => { %>
+                <option value="<%= instructor.idUtilizator %>"><%= instructor.nume %></option>
+            <% }); %>
+        </select>
+
+        <label for="dataIncepere">Data Începere:</label>
+        <input type="date" id="dataIncepere" name="dataIncepere" required>
+
+        <label for="dataFinalizare">Data Finalizare:</label>
+        <input type="date" id="dataFinalizare" name="dataFinalizare" required>
+
+        <label for="durata">Durata (zile):</label>
+        <input type="number" id="durata" name="durata" min="1" required>
+
+        <label for="nivelDificultate">Nivel Dificultate:</label>
+        <select id="nivelDificultate" name="nivelDificultate" required>
+            <option value="începător">Începător</option>
+            <option value="avansat">Avansat</option>
+        </select>
+
+        <button type="submit">Salvează</button>
+    </form>
+</body>
+</html>

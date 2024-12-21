@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Utilizatori</title>
+    <link rel="stylesheet" href="/path/to/your/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Lista Utilizatori</h2>
+        <ul>
+            <% utilizatori.forEach(utilizator => { %>
+                <li>
+                    <%= utilizator.nume %> - 
+                    <a href="/utilizatori/<%= utilizator.idUtilizator %>">Detalii</a> |
+                    <a href="/utilizatori/<%= utilizator.idUtilizator %>/edit">Editare</a>
+                    
+                    <!-- Formular de ștergere -->
+                    <form action="/utilizatori/<%= utilizator.idUtilizator %>?_method=DELETE" method="POST" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Ești sigur că vrei să ștergi acest utilizator?');">Ștergere</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+        <a href="/utilizatori/create">Adaugă Utilizator</a>
+    </div>
+</body>
+</html>

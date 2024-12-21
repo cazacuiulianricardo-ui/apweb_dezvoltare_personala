@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editare Utilizator</title>
+</head>
+<body>
+    <h1>Editare Utilizator</h1>
+    <form action="/utilizatori/<%= utilizator.idUtilizator %>?_method=PUT" method="POST">
+        <label for="nume">Nume:</label>
+        <input type="text" name="nume" id="nume" value="<%= utilizator.nume %>" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="<%= utilizator.email %>" required>
+
+        <label for="parola">Parolă:</label>
+        <input type="password" name="parola" id="parola">
+
+        <label for="tipUtilizator">Tip Utilizator:</label>
+        <select name="tipUtilizator" id="tipUtilizator" required>
+            <option value="client" <%= utilizator.tipUtilizator === 'client' ? 'selected' : '' %>>Client</option>
+            <option value="instructor" <%= utilizator.tipUtilizator === 'instructor' ? 'selected' : '' %>>Instructor</option>
+        </select>
+        
+        <button type="submit">Salvează</button>
+    </form>
+    <a href="/utilizatori">Înapoi la lista utilizatorilor</a>
+</body>
+</html>

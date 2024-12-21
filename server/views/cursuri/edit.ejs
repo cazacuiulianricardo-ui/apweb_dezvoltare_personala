@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Editare Curs</title>
+</head>
+<body>
+    <h1>Editare Curs</h1>
+    <form action="/cursuri/<%= curs.idCurs %>?_method=PUT" method="POST">
+        <label for="titlu">Titlu:</label>
+        <input type="text" id="titlu" name="titlu" value="<%= curs.titlu %>" required>
+
+        <label for="descriere">Descriere:</label>
+        <textarea id="descriere" name="descriere"><%= curs.descriere %></textarea>
+
+        <label for="instructor">Instructor:</label>
+        <select id="instructor" name="idInstructor" required>
+            <% instructori.forEach(instructor => { %>
+                <option value="<%= instructor.idUtilizator %>" <%= curs.instructor && curs.instructor.idUtilizator === instructor.idUtilizator ? 'selected' : '' %>>
+                    <%= instructor.nume %>
+                </option>
+            <% }); %>
+        </select>
+
+        <label for="dataIncepere">Data Începere:</label>
+        <input type="date" id="dataIncepere" name="dataIncepere" value="<%= curs.dataIncepere %>" required>
+
+        <label for="dataFinalizare">Data Finalizare:</label>
+        <input type="date" id="dataFinalizare" name="dataFinalizare" value="<%= curs.dataFinalizare %>" required>
+
+        <label for="durata">Durata (zile):</label>
+        <input type="number" id="durata" name="durata" value="<%= curs.durata %>" required>
+
+        <label for="nivelDificultate">Nivel Dificultate:</label>
+        <select id="nivelDificultate" name="nivelDificultate" required>
+            <option value="începător" <%= curs.nivelDificultate === 'începător' ? 'selected' : '' %>>începător</option>
+            <option value="avansat" <%= curs.nivelDificultate === 'avansat' ? 'selected' : '' %>>avansat</option>
+        </select>
+
+        <button type="submit">Actualizează Curs</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Cursuri</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista Cursuri</h1>
+        <ul>
+            <% cursuri.forEach(curs => { %>
+                <li>
+                    <%= curs.titlu %> - Instructor: <%= curs.instructor.nume %>
+                    <!-- Corectarea link-ului pentru detalii -->
+                    <a href="/cursuri/<%= curs.idCurs %>">Detalii</a> |
+                    <a href="/cursuri/<%= curs.idCurs %>/edit">Editare</a>
+                    <form action="/cursuri/<%= curs.idCurs %>?_method=DELETE" method="POST" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Ești sigur că vrei să ștergi acest curs?');">Ștergere</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+        <a href="/cursuri/create">Adaugă Curs</a>     
+    </div>
+</body>
+</html>

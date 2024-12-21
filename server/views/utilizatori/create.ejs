@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaugă Utilizator</title>
+</head>
+<body>
+    <h1>Adaugă Utilizator Nou</h1>
+    <form action="/utilizatori" method="POST">  <!-- Calea corectă pentru a trimite datele -->
+        <label for="nume">Nume:</label>
+        <input type="text" name="nume" id="nume" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="parola">Parolă:</label>
+        <input type="password" name="parola" id="parola" required>
+        
+        <label for="tipUtilizator">Tip Utilizator:</label>
+        <select name="tipUtilizator" id="tipUtilizator" required>
+            <option value="client">Client</option>
+            <option value="instructor">Instructor</option>
+        </select>
+        
+        <button type="submit">Salvează</button>
+    </form>
+</body>
+</html>

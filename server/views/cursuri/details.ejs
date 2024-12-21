@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalii Curs</title>
+</head>
+<body>
+    <h1>Detalii Curs</h1>
+    <p>Titlu: <%= curs.titlu %></p>
+    <p>Descriere: <%= curs.descriere %></p>
+    <p>Instructor: <%= curs.instructor ? curs.instructor.nume : 'N/A' %></p>
+    <a href="/cursuri">Înapoi la lista cursurilor</a>
+</body>
+</html>

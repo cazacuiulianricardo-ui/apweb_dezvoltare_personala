@@ -1,0 +1,15 @@
+# Visual Studio Code
+.vscode/
+
+# Node modules
+Client/node_modules/
+
+# Build output
+Client/build/
+Client/dist/
+
+# Logs
+Client/*.log
+
+# Environment variables
+.env
