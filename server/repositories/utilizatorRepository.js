@@ -7,8 +7,8 @@ class UtilizatorRepository {
             where: { isDeleted: false }
         });
     }
-
-
+    
+    
     async getAllUtilizatoriIncludingDeleted() {
         return await Utilizator.findAll(); 
     }

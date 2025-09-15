@@ -186,24 +186,24 @@ class AbonamentController {
     async getAvailableCourses(req, res) {
         try {
             const { idAbonament } = req.params;
+    
             if (!idAbonament) {
                 return res.status(400).json({ message: 'ID-ul abonamentului este necesar.' });
             }
-
+    
             const abonament = await this.abonamentService.getAbonamentById(idAbonament);
+    
             if (!abonament) {
                 return res.status(404).json({ message: 'Abonamentul nu a fost găsit.' });
             }
-
-        
+    
             const niveluri = abonament.tip === 'Standard' ? ['începător'] : ['începător', 'avansat'];
-
+    
             const cursuri = await this.cursService.getCursuriByNivel(niveluri);
-
-            if (cursuri.length === 0) {
+                if (cursuri.length === 0) {
                 return res.status(404).json({ message: 'Nu sunt cursuri disponibile pentru acest abonament.' });
             }
-
+    
             res.json(cursuri);
         } catch (err) {
             console.error(err);

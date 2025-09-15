@@ -16,7 +16,7 @@ class ResourceController {
                 return res.status(400).json({ message: 'Titlul și fișierul sunt necesare.' });
             }
 
-            const videoUrl = `/uploads/videos/${file.filename}${path.extname(file.originalname)}`;
+            const videoUrl = `/uploads/videos/${file.filename}`;
             const newVideo = await this.videoService.createVideo({ titlu, url: videoUrl, idModule: moduleId });
             res.status(201).json(newVideo);
         } catch (err) {
@@ -62,7 +62,7 @@ class ResourceController {
     }
 
 
-    async addPDF(req, res) {
+     async addPDF(req, res) {
         try {
             const moduleId = req.params.moduleId;
             const { titlu } = req.body;
@@ -72,7 +72,7 @@ class ResourceController {
                 return res.status(400).json({ message: 'Titlul și fișierul sunt necesare.' });
             }
 
-            const pdfUrl = `/uploads/pdfs/${file.filename}${path.extname(file.originalname)}`;
+            const pdfUrl = `/uploads/pdfs/${file.filename}`;
             const newPDF = await this.pdfService.createPDF({ titlu, url: pdfUrl, idModule: moduleId });
             res.status(201).json(newPDF);
         } catch (err) {

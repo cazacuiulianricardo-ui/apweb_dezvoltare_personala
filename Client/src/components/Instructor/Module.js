@@ -11,7 +11,7 @@ const Module = ({ module, onUpdate, onDelete }) => {
     const [showEditModule, setShowEditModule] = useState(false);
     const [moduleName, setModuleName] = useState(module.nume);
     const [loading, setLoading] = useState(false);
-    git rm --cached
+
     const handleDeleteModule = async () => {
         if (!window.confirm('Ești sigur că dorești să ștergi acest modul?')) return;
 

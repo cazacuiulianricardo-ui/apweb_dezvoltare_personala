@@ -9,10 +9,8 @@ class AuthController {
         try {
             const { nume, email, parola, tipUtilizator } = req.body;
 
-           
             const userExists = await Utilizator.findOne({ where: { email } });
             if (userExists) {
-                
                 if (userExists.isDeleted) {
                     return res.status(400).json({ message: 'Acest cont a fost șters logic. Nu poți înregistra din nou același email.' });
                 } else {
@@ -20,7 +18,7 @@ class AuthController {
                 }
             }
 
-            
+
             const newUtilizator = await Utilizator.create({
                 nume,
                 email,
@@ -56,7 +54,7 @@ class AuthController {
             const token = jwt.sign(
                 { id: utilizator.idUtilizator, tipUtilizator: utilizator.tipUtilizator },
                 secretKey,
-                { expiresIn: '1h' }
+                { expiresIn: '1h' } 
             );
 
             res.json({ message: 'Autentificare reușită.', token });

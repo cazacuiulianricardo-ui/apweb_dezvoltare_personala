@@ -28,9 +28,9 @@ class CursController {
 
     async create(req, res) {
         try {
-            const { titlu, descriere, nivelDificultate, idInstructor, dataIncepere, dataFinalizare } = req.body;
+            const { titlu, descriere, nivelDificultate, idInstructor, dataIncepere, dataFinalizare, durata } = req.body;
 
-            if (!titlu || !descriere || !nivelDificultate || !idInstructor || !dataIncepere || !dataFinalizare) {
+            if (!titlu || !descriere || !nivelDificultate || !idInstructor || !dataIncepere || !dataFinalizare || !durata) {
                 return res.status(400).json({ message: 'Toate câmpurile sunt obligatorii.' });
             }
 
@@ -40,7 +40,8 @@ class CursController {
                 nivelDificultate,
                 idInstructor,
                 dataIncepere,
-                dataFinalizare
+                dataFinalizare,
+                durata
             });
 
             res.status(201).json(curs);

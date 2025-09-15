@@ -8,7 +8,7 @@ const VideoPlayer = ({ url, title }) => {
             {url ? (
                 <video controls width="100%">
                     <source src={url} type="video/mp4" />
-                    Your browser does not support the video tag.
+                    Browserul tău nu suportă tag-ul video.
                 </video>
             ) : (
                 <p>Fișierul video nu este disponibil.</p>

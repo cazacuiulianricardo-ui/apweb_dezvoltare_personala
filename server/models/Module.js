@@ -1,4 +1,4 @@
-// models/Module.js
+
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
 const Curs = require('./Curs');

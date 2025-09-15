@@ -11,5 +11,8 @@ Client/dist/
 # Logs
 Client/*.log
 
+# db
+server/db
+
 # Environment variables
 .env

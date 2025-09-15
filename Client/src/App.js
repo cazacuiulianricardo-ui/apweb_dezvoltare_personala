@@ -29,7 +29,7 @@ import AuthProvider from './contexts/AuthContext';
 import ManageUsers from './components/Admin/ManageUsers';
 import ModuleManagement from './components/Instructor/ModuleManagement';
 import CourseDetails from './components/Instructor/CourseDetails';
-import MyCourses from './components/Student/MyCourses';
+import StudentCourseDetails from './components/Student/StudentCourseDetails';
 function App() {
   return (
     <AuthProvider>
@@ -65,6 +65,16 @@ function App() {
               <PrivateRoute>
                 <StudentLayout>
                   <CursurileMele />
+                </StudentLayout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/cursurile-mele/:id"
+            element={
+              <PrivateRoute>
+                <StudentLayout>
+                  <StudentCourseDetails />
                 </StudentLayout>
               </PrivateRoute>
             }
@@ -112,6 +122,8 @@ function App() {
           <Route path="/stersLogic" element={<ManageUsers />} />
           {/* .. */}
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/adaugaUtilizator" element={<UtilizatorCreate/>}/>
+         
         </Routes>
       </Router>
     </AuthProvider>

@@ -1,34 +1,26 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import axiosInstance from '../../axiosInstance';
-import { AuthContext } from '../../contexts/AuthContext';
-import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 import VideoPlayer from './VideoPlayer';
 import PDFViewer from './PDFViewer';
 import './CourseDetails.css';
 
 const CourseDetails = () => {
-    const { id } = useParams(); 
-    const { auth } = useContext(AuthContext);
+    const { id } = useParams();
     const [course, setCourse] = useState(null);
-    const [modules, setModules] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchCourseDetails = async () => {
             try {
-
-                const courseResponse = await axiosInstance.get(`/cursuri/${id}`);
-                setCourse(courseResponse.data);
-
-                console.log('Course Data:', courseResponse.data);
-
-                setLoading(false);
-            } catch (error) {
-                console.error('Eroare la obținerea detaliilor cursului:', error);
-                setErrorMessage('Nu s-au putut încărca detaliile cursului.');
-                toast.error('Nu s-au putut încărca detaliile cursului.');
+                const response = await axiosInstance.get(`/cursuri/${id}`);
+                setCourse(response.data);
+                setError('');
+            } catch (err) {
+                console.error('Eroare la obținerea detaliilor cursului:', err);
+                setError(err.response?.data?.message || 'Eroare la încărcarea detaliilor cursului.');
+            } finally {
                 setLoading(false);
             }
         };
@@ -40,29 +32,19 @@ const CourseDetails = () => {
         return <div>Se încarcă detaliile cursului...</div>;
     }
 
-    if (errorMessage) {
-        return <div className="error-message">{errorMessage}</div>;
+    if (error) {
+        return <div className="error-message">{error}</div>;
     }
-
-
-    const backendBaseURL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:7500';
-
-    const buildVideoUrl = (videoUrl) => {
-        return `${backendBaseURL}/uploads/videos/${videoUrl}`;
-    };
-
-    const buildPdfUrl = (pdfUrl) => {
-        return `${backendBaseURL}/uploads/pdfs/${pdfUrl}`;
-    };
 
     return (
         <div className="course-details">
             <h1>{course.titlu}</h1>
             <p>{course.descriere}</p>
-            <p>Durată: {course.durata} ore</p>
-            <p>Dificultate: {course.nivelDificultate}</p>
-            <p>Data Începere: {new Date(course.dataIncepere).toLocaleDateString()}</p>
-            <p>Data Finalizare: {new Date(course.dataFinalizare).toLocaleDateString()}</p>
+            <p><strong>Durată:</strong> {course.durata} ore</p>
+            <p><strong>Dificultate:</strong> {course.nivelDificultate}</p>
+            <p><strong>Instructor:</strong> {course.instructor.nume}</p>
+            <p><strong>Data Începere:</strong> {new Date(course.dataIncepere).toLocaleDateString()}</p>
+            <p><strong>Data Finalizare:</strong> {new Date(course.dataFinalizare).toLocaleDateString()}</p>
 
             <h2>Module</h2>
             {course.modules && course.modules.length > 0 ? (
@@ -76,7 +58,7 @@ const CourseDetails = () => {
                                 module.videos.map(video => (
                                     <VideoPlayer 
                                         key={video.idVideo} 
-                                        url={buildVideoUrl(video.url)} 
+                                        url={`http://localhost:7500${video.url}`} 
                                         title={video.titlu} 
                                     />
                                 ))
@@ -89,7 +71,7 @@ const CourseDetails = () => {
                                 module.pdfs.map(pdf => (
                                     <PDFViewer 
                                         key={pdf.idPDF} 
-                                        url={buildPdfUrl(pdf.url)} 
+                                        url={`http://localhost:7500${pdf.url}`} 
                                         title={pdf.titlu} 
                                     />
                                 ))

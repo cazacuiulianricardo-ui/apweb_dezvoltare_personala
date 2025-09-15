@@ -1,4 +1,4 @@
-const { createContainer, asClass } = require('awilix');
+const { createContainer, asClass, asValue} = require('awilix');
 const CursController = require('../controllers/cursController');
 const CursService = require('../services/cursService');
 const CursRepository = require('../repositories/cursRepository');
@@ -18,6 +18,7 @@ const VideoService = require('../services/videoService');
 const PDFRepository = require('../repositories/pdfRepository');
 const PDFService = require('../services/pdfService');
 const ResourceController = require('../controllers/resourceController');
+const CacheService = require('../services/cacheService');
 
 const container = createContainer();
 
@@ -47,6 +48,7 @@ container.register({
 
     moduleController: asClass(ModuleController).scoped(),
     resourceController: asClass(ResourceController).scoped(),
+    cacheService: asValue(CacheService),
 });
 
 module.exports = container;

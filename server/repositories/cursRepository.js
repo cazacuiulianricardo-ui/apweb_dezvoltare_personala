@@ -1,12 +1,45 @@
 const Curs = require('../models/Curs');
+const Module = require('../models/Module');
+const Video = require('../models/Video');
+const PDF = require('../models/PDF');
 
 class CursRepository {
     async getAllCursuri() {
-        return await Curs.findAll({ include: ['instructor'] });
+        return await Curs.findAll({
+            include: [
+                {
+                    model: Module,
+                    as: 'modules',
+                    include: [
+                        { model: Video, as: 'videos' },
+                        { model: PDF, as: 'pdfs' }
+                    ]
+                },
+                {
+                    model: require('../models/Utilizator'),
+                    as: 'instructor'
+                }
+            ]
+        });
     }
 
     async getCursById(id) {
-        return await Curs.findByPk(id, { include: ['instructor'] });
+        return await Curs.findByPk(id, {
+            include: [
+                {
+                    model: Module,
+                    as: 'modules',
+                    include: [
+                        { model: Video, as: 'videos' },
+                        { model: PDF, as: 'pdfs' }
+                    ]
+                },
+                {
+                    model: require('../models/Utilizator'),
+                    as: 'instructor'
+                }
+            ]
+        });
     }
 
     async createCurs(data) {
@@ -34,14 +67,40 @@ class CursRepository {
     async getCursuriByInstructorId(instructorId) {
         return await Curs.findAll({
             where: { idInstructor: instructorId },
-            include: ['instructor']
+            include: [
+                {
+                    model: Module,
+                    as: 'modules',
+                    include: [
+                        { model: Video, as: 'videos' },
+                        { model: PDF, as: 'pdfs' }
+                    ]
+                },
+                {
+                    model: require('../models/Utilizator'),
+                    as: 'instructor'
+                }
+            ]
         });
     }
 
     async getCursuriByNivel(niveluri) {
         return await Curs.findAll({
             where: { nivelDificultate: niveluri },
-            include: ['instructor']
+            include: [
+                {
+                    model: Module,
+                    as: 'modules',
+                    include: [
+                        { model: Video, as: 'videos' },
+                        { model: PDF, as: 'pdfs' }
+                    ]
+                },
+                {
+                    model: require('../models/Utilizator'),
+                    as: 'instructor'
+                }
+            ]
         });
     }
 }
